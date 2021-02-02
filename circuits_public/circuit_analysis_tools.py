@@ -12,7 +12,7 @@ import datetime
 # nodes have voltages
 # elements have currents
 # currents from start node to end node are positive
-# 
+
 
 ############################
 ######## Node Class ########
@@ -613,36 +613,9 @@ class Circuit:
         # for debug
         self.x = x
 
-############################################
-######## Element Behavior Functions ########
-############################################
-
-# PORTED TO ELEMENT CLASS AS A METHOD
-# def update_source_voltage_sine(element, time_s):
-#     '''
-#     TO DO: Where should this function live? should it be a method of any
-#     class? 
-
-#     TO DO: doing this here because it's a nice example of an update function
-#     that can be called to update an element's behavior. But this one can
-#     be pre-calculated based on times, so maybe it should be defined at
-#     instantiation?
-
-#     Updates the voltage of a 'source_voltage_sine' object as a
-#     function of time
-
-#     '''
-
-#     # Calculate and return the voltage as a function of time
-#     V_now = np.sin(2 * np.pi * time_s * element.frequency_Hz)
-#     return V_now
-
-
-def coefficients(element_or_node_object):
-    '''
-    input is an element or node object.
-    '''
-    pass
+##################################
+######## Helper Functions ########
+##################################
 
 def get_timestamp():
     '''
