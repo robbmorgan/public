@@ -1,0 +1,211 @@
+{   
+    "nodes" : [
+        {
+            "id"                : "b",
+            "voltage_initial_V" : 0.0,
+            "is_ground"         : false
+        },
+        {
+            "id"                : "c",
+            "voltage_initial_V" : 0.0,
+            "is_ground"         : false
+        },
+        {
+            "id"                : "d",
+            "voltage_initial_V" : 0.0,
+            "is_ground"         : false
+        },
+        {
+            "id"                : "e",
+            "voltage_initial_V" : 0.0,
+            "is_ground"         : false
+        },
+        {
+            "id"                : "f",
+            "voltage_initial_V" : 0.0,
+            "is_ground"         : false
+        },
+        {
+            "id"                : "g",
+            "voltage_initial_V" : 0.0,
+            "is_ground"         : true
+        }
+    ],
+
+    "circuit_elements": [
+        {
+            "type"                : "source_voltage_sine",
+            "id"                  : "S1",
+            "node_start"          : "g",
+            "node_end"            : "b",
+            "voltage_max_V"       : 9.1,
+            "frequency_Hz"        : 21.4,
+            "current_initial_A"   : 0.0
+        },
+        {
+            "type"                : "inductor",
+            "id"                  : "L1",
+            "node_start"          : "b",
+            "node_end"            : "c",
+            "inductance_H"        : 0.12,
+            "current_initial_A"   : 0.0
+        },
+        {
+            "type"                : "resistor",
+            "id"                  : "R1",
+            "node_start"          : "c",
+            "node_end"            : "d",
+            "resistance_ohm"      : 4.5,
+            "current_initial_A"   : 0.0
+        },
+        {
+            "type"                : "diode_interpolated",
+            "id"                  : "D1",
+            "node_start"          : "d",
+            "node_end"            : "e",
+            "current_initial_A"   : 0.0,
+            "resistance_ohm"      : 1e+3,
+            "diode_curve_[[V,A]]" : [
+                [0.00, 0.000],
+                [0.25, 0.010],
+                [0.30, 0.060],
+                [0.35, 0.300],
+                [0.40, 0.850],
+                [0.45, 1.750],
+                [0.50, 2.800],
+                [0.60, 5.300],
+                [0.70, 9.000]
+            ]
+        },
+        {
+            "type"                : "diode_interpolated",
+            "id"                  : "D2",
+            "node_start"          : "f",
+            "node_end"            : "d",
+            "current_initial_A"   : 0.0,
+            "resistance_ohm"      : 1e+3,
+            "diode_curve_[[V,A]]" : [
+                [0.00, 0.000],
+                [0.25, 0.010],
+                [0.30, 0.060],
+                [0.35, 0.300],
+                [0.40, 0.850],
+                [0.45, 1.750],
+                [0.50, 2.800],
+                [0.60, 5.300],
+                [0.70, 9.000]
+            ]
+        },
+        {
+            "type"                : "diode_interpolated",
+            "id"                  : "D3",
+            "node_start"          : "g",
+            "node_end"            : "e",
+            "current_initial_A"   : 0.0,
+            "resistance_ohm"      : 1e+3,
+            "diode_curve_[[V,A]]" : [
+                [0.00, 0.000],
+                [0.25, 0.010],
+                [0.30, 0.060],
+                [0.35, 0.300],
+                [0.40, 0.850],
+                [0.45, 1.750],
+                [0.50, 2.800],
+                [0.60, 5.300],
+                [0.70, 9.000]
+            ]
+        },
+        {
+            "type"                : "diode_interpolated",
+            "id"                  : "D4",
+            "node_start"          : "f",
+            "node_end"            : "g",
+            "current_initial_A"   : 0.0,
+            "resistance_ohm"      : 1e+3,
+            "diode_curve_[[V,A]]" : [
+                [0.00, 0.000],
+                [0.25, 0.010],
+                [0.30, 0.060],
+                [0.35, 0.300],
+                [0.40, 0.850],
+                [0.45, 1.750],
+                [0.50, 2.800],
+                [0.60, 5.300],
+                [0.70, 9.000]
+            ]
+        },
+        {
+            "type"                : "capacitor",
+            "id"                  : "C1",
+            "node_start"          : "e",
+            "node_end"            : "f",
+            "capacitance_F"       : 0.050000,
+            "current_initial_A"   : 0.0
+        },
+        {
+            "type"                : "diode_interpolated",
+            "id"                  : "D5",
+            "node_start"          : "e",
+            "node_end"            : "f",
+            "current_initial_A"   : 0.0,
+            "resistance_ohm"      : 1e+3,
+            "diode_curve_[[V,A]]" : [
+                [0.00, 0.000],
+                [2.56, 0.000],
+                [2.60, 0.020],
+                [2.64, 0.080],
+                [2.70, 0.234],
+                [2.80, 0.514],
+                [2.90, 0.858],
+                [3.00, 1.256],
+                [3.10, 1.692],
+                [3.20, 2.161],
+                [3.30, 2.671],
+                [20.0, 100.0]
+            ]
+        }
+
+    ],
+
+    "branches": [
+        {
+            "branch_name"    : "S1, L1, R1",
+            "ref_element_id" : "S1"
+        },
+        {
+            "branch_name"    : "D1",
+            "ref_element_id" : "D1"
+        },
+        {
+            "branch_name"    : "D2",
+            "ref_element_id" : "D2"
+        },
+        {
+            "branch_name"    : "D3",
+            "ref_element_id" : "D3"
+        },
+        {
+            "branch_name"    : "D4",
+            "ref_element_id" : "D4"
+        },
+        {
+            "branch_name"    : "C1",
+            "ref_element_id" : "C1"
+        },
+        {
+            "branch_name"    : "D5",
+            "ref_element_id" : "D5"
+        }
+    ],
+
+    "######## unused_element_storage_for_reference ########": [
+        {
+            "type"                : "capacitor",
+            "id"                  : "C2",
+            "node_start"          : "d",
+            "node_end"            : "a",
+            "capacitance_F"       : 0.000001,
+            "current_initial_A"   : 0.0
+        }
+    ]
+}
